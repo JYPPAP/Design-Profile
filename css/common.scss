@@ -105,7 +105,7 @@ body {
   padding: 0 30px;
   white-space: nowrap;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 550px) {
     padding: 0 16px;
   }
 
@@ -278,11 +278,12 @@ body {
   flex-direction: column;
   color: var(--theme-color);
   padding: 20px 40px;
+  width: auto;
   height: 100%;
   overflow: auto;
   background-color: var(--theme-bg-color);
 
-  @media screen and (max-width: 510px) {
+  @media screen and (max-width: 680px) {
     padding: 20px;
   }
 
@@ -308,16 +309,16 @@ body {
     border-radius: 14px;
     padding: 20px 40px;
 
-    @media screen and (max-width: 415px) {
+    @media screen and (max-width: 830px) {
       padding: 20px;
     }
   }
 
-  &.overlay {
-    pointer-events: none;
-    transition: 0.3s;
-    background-color: var(--overlay-bg);
-  }
+  // &.overlay {
+  //   pointer-events: none;
+  //   transition: 0.3s;
+  //   background-color: var(--overlay-bg);
+  // }
 
 }
 
@@ -339,6 +340,18 @@ body {
 //   }
 // }
 
+// .content-text {
+//   margin-top: 16px;
+//   color: #ebecec;
+//   display: -webkit-box;
+//   -webkit-line-clamp: 4;
+//   -webkit-box-orient: vertical;
+//   text-overflow: ellipsis;
+// }
+
+.content-wrapper-context {
+  position: relative;
+}
 .dev-name {
   font-weight: 500;
   font-size: 17px;
@@ -347,20 +360,6 @@ body {
   margin: 0;
 
 }
-
-.content-text {
-  margin-top: 16px;
-  color: #ebecec;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-}
-
-.content-wrapper-context {
-  position: relative;
-}
-
 /* 컨텐츠 헤더의 슬라이드 텍스트 */
 .slide {
   width: 600px;
@@ -378,6 +377,13 @@ body {
   -webkit-box-orient: vertical;
   /* 글자가 넘칠 때 ... 으로 생략 표시 */
   // text-overflow: ellipsis;
+
+  @media screen and (max-width: 830px) {
+    max-width: 400px;
+  }
+  @media screen and (max-width: 580px) {
+    display: none;
+  }
   
   &__container {
     font-weight: 600;
@@ -392,6 +398,9 @@ body {
     &:after {
       content: ']';
       right: 0;
+      @media screen and (max-width: 830px) {
+        right: 10px;
+      }
     }
 
     &:after, &:before {
@@ -411,6 +420,9 @@ body {
       display: inline;
       float: left;
       margin: 0;
+      @media screen and (max-width: 830px) {
+        display: none;
+      }
     }
 
     &__list {
@@ -425,6 +437,13 @@ body {
       animation-name: change;
       animation-duration: 20s;
       animation-iteration-count: infinite;
+
+      @media screen and (max-width: 830px) {
+        // margin-top: 40px;
+        padding-left: 0px;
+        overflow: hidden;
+        letter-spacing: -1.5px;
+      }
 
       &__item {
         line-height:40px;
@@ -546,9 +565,16 @@ body {
   width: 140px;
   font-size: 15px;
   position: relative;
+  padding-right: 30px;
 
-  @media screen and (max-width: 700px) {
-    display: none;
+  @media screen and (max-width: 880px) {
+    &:nth-child(2) {
+      margin-left: 50px;
+      
+    }
+  }
+  @media screen and (max-width: 780px) {
+      display: none;
   }
 
   &-circle {
