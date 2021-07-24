@@ -4,7 +4,7 @@
   outline: none;
   box-sizing: border-box;
 }
-/* 색 관련 변수 */
+/* 변수 */
 :root {
   --theme-bg-color: rgba(16, 18, 27, 40%);
   --border-color: rgba(54, 50, 50, 0.35);
@@ -17,10 +17,12 @@
   --button-inactive: rgba(249, 250, 251, 55%);
   --dropdown-bg: #21242d;
   --dropdown-hover: rgb(42, 46, 60);
-  --popup-bg: rgb(22, 25, 37);
+  --popup-bg: rgba(22, 25, 37, 80%);
   --search-bg: #14162b;
   --overlay-bg: rgba(36, 39, 59, 0.3);
   --scrollbar-bg: rgba(1, 2, 3, 40%);
+  --close-active-bg: rgb(249, 248, 113);
+  --close-bg: rgb(47, 72, 88);
 }
 
 // .light-mode {
@@ -283,7 +285,7 @@ body {
   overflow: auto;
   background-color: var(--theme-bg-color);
 
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 830px) {
     padding: 20px;
   }
 
@@ -379,9 +381,11 @@ body {
   // text-overflow: ellipsis;
 
   @media screen and (max-width: 830px) {
+    transition: all .5s;
     max-width: 400px;
   }
   @media screen and (max-width: 580px) {
+    transition: all .5s;
     display: none;
   }
   
@@ -860,7 +864,7 @@ body {
     }
   }
 
-  @media screen and (max-width: 565px) {
+  @media screen and (max-width: 680px) {
     width: calc(100% - 20px);
     margin-top: 20px;
 
@@ -872,29 +876,161 @@ body {
 
 /* 모달 프레임. */
 .popup-modal {
-  position: absolute;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
   padding: 30px 40px;
-  top: 10vw;
-  left: 20%;
-  overflow-y: auto;
   box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s;
-  z-index: 1000;
+  // transition: all 0.3s;
+  z-index: 9999;
   background-color: var(--popup-bg);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--border-color);
   visibility: hidden;
   opacity: 0;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
-  white-space: normal;
+  justify-content: center;
+  align-items: center;
 
-  &.intro-modal {
-    max-width: 80%;
-    width: 800px;
+  /* 닫기 버튼 */
+  .popup-modal__close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    margin-top: 100px;
+    cursor: pointer;
+    margin: auto;
+
+    .close-button__left {
+      height: 4px;
+      width: 50px;
+      position: absolute;
+      margin-top: 24px;
+      background-color: var(--close-bg);
+      border-radius: 2px;
+      transform: rotate(45deg);
+      transition: all .3s ease-in;
+    }
+
+    .close-button__right {
+      height: 4px;
+      width: 50px;
+      position: absolute;
+      margin-top: 24px;
+      background-color: var(--close-bg);
+      border-radius: 2px;
+      transform: rotate(-45deg);
+      transition: all .3s ease-in;
+    }
+
+    label {
+      color: var(--close-bg);
+      font: var(--body-font);
+      font-size: 0.6em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all .3s ease-in;
+      opacity: 0;
+    }
+
+    .close {
+      margin: 60px 0 0 5px;
+      position: absolute;
+    }
+
+    /* 닫기 버튼에 마우스 올렸을 때 */
+    .popup-modal__close-button:hover {
+      .close-button__left {
+        transform: rotate(-45deg);
+        background-color: var(--close-active-bg);
+      }
+
+      .close-button__right {
+        transform: rotate(45deg);
+        background-color: var(--close-active-bg);
+      }
+
+      label {
+        opacity: 1;
+      }
+    }
   }
 
-  @media screen and (max-width: 570px) {
-    width: 100%;
+  /* 개발자 소개 모달 페이지 */
+  &.intro-modal {
+    max-width: 700px;
+    width: 80vw;
+    max-height: 700px;
+    height: 80vh;
+    position: fixed;
+
+    .popup-modal__title {
+      color: var(--theme-color);
+    }
+
+    .popup-modal__subtitle {
+      display: flex;
+      flex-direction: row;
+
+      &__left {
+        width: 35%;
+        padding: 5px;
+
+        .dev-image {
+          position: relative;
+          top: 100px;
+          background-image: url(../images/Content/dev_image.jpg);
+          width: 100%;
+          height: 100%;
+          max-height: 200px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          margin: 0 auto;
+        }
+
+        .dev-name {
+          justify-content: center;
+          color: var(--theme-color);
+          margin-top: 110px;
+          padding-right: 20px;
+        }
+      }
+
+      &__right {
+        width: 65%;
+        padding: 10px;
+
+        .devInfo {
+          &__birth {
+            border-bottom: 1px solid var(--border-color);
+          }
+
+          &__edu {
+            border-bottom: 1px solid var(--border-color);
+          }
+
+          &__cert {
+            letter-spacing: -3px;
+          }
+        }
+      }
+    }
+
+  }
+
+  @media screen and (max-width: 680px) {
+    width: calc(100% - 20px);
   }
 
   pointer-events: none;
@@ -922,6 +1058,18 @@ body {
 
     a {
       color: var(--theme-color);
+    }
+
+    td {
+      letter-spacing: -1px;
+    }
+  }
+
+  @media screen and (max-width: 710px) {
+    padding: 10px 15px;
+
+    .hide_small {
+      display: none;
     }
   }
 }
