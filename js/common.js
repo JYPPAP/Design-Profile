@@ -65,3 +65,27 @@ $(".status-button:not(.open)").click(function () {
 $(".pop-up .close").click(function () {
   $(".pop-up").removeClass("visible");
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const bodyBlackWrap = document.querySelector('.body-blackWrap')
+  const popupModal = document.querySelector('.popup-modal')
+  const introModal = document.querySelector('.content-wrapper-context .모달 이름넣기.')
+
+
+  /* 인트로 팝업창. */
+  document.querySelector('.content-wrapper-context .content-button').addEventListener('click', function() {
+    introModal.classList.add('is--visible');
+    bodyBlackWrap.classList.add('blackOn');
+  });
+
+  /* 모달 닫기 */
+  popupModal.querySelector('.popup-modal__close').addEventListener('click', () => {
+    popupModal.classList.remove('is--visible');
+    bodyBlackWrap.classList.remove('blackOn');
+  });
+  bodyBlackWrap.addEventListener('click', () => {
+    popupModal.classList.remove('is--visible');
+    bodyBlackWrap.classList.remove('blackOn');
+  });
+});

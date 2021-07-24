@@ -18,25 +18,41 @@
 </head>
 
 <body>
-
-  <!-- 그 라이브러리 중에서 tutorial용으로 쓰는 라이브러리가 있던데 그걸 이용해서 설명을 넣는 것에 대해서도 생각해보기. -->
+  <!-- 모달 열었을 때 배경 검정색으로 채울 때 사용 -->
+  <div class="body-blackWrap"></div>
   <div class="wrap">
 
     <!-- 헤더 -->
     <!--
       - 헤더에는 헤더 메뉴와 검색창이 있다.
       - 다크모드용 아이콘을 추가 할 예정이다.
-      - 화면의 크기가 줄어들면 검색창을 제거 할 것이다. ( 현재는 메뉴가 없어짐. )
+      - 화면의 크기가 줄어들면 검색창을 제거
     -->
     <div class="header">
+      <!-- 헤더 메뉴 -->
       <div class="header-menu">
-        <a class="header-menu-link is-active" href="index.html">My Profile</a>
+        <a class="header-menu-link is-active" href="javascript:;">My Profile</a>
         <a class="header-menu-link" href="javascript:;">THREE.js</a>
       </div>
 
+      <!-- 검색창 -->
       <div class="search-bar">
         <input type="text" placeholder="SearchBox">
       </div>
+
+      <!-- 다크모드용 토글 버튼 -->
+      <div class="toggle-button">
+        <div class="toggle-button-switch"></div>
+        <div class="toggle-button-text">
+          <div class="toggle-button-text-on">
+            <i class="far fa-sun fa-lg"></i>
+          </div>
+          <div class="toggle-button-text-off">
+            <i class="far fa-moon fa-lg"></i>
+          </div>
+        </div>
+      </div>
+
     </div>
     <!-- /header -->
 
@@ -77,19 +93,50 @@
           -->
           <div class="content-wrapper-header">
             <div class="content-wrapper-context">
-              <h3 class="img-content">
+              <h3 class="dev-name">
                 개발자 조영수
               </h3>
-              <div class="content-text">
-                Typed.js 또는 Pure CSS를 이용한 텍스트 슬라이드로 구현하기.
+              <div class="slide">
+                <div class="slide__container">
+                  <p class="slide__container__text">
+                    안녕하세요! &nbsp; 저는 
+                  </p>
+                  <ul class="slide__container__list">
+                    <li class="slide__container__list__item">
+                      코드 재활용을 좋아하는 개발자 입니다.
+                    </li>
+                    <li class="slide__container__list__item">
+                      생각하기 좋아하는 개발자 입니다.
+                    </li>
+                    <li class="slide__container__list__item">
+                      클린코딩을 고민하는 개발자 입니다.
+                    </li>
+                    <li class="slide__container__list__item">
+                      프론트엔드 개발자 입니다.
+                    </li>
+                    <li class="slide__container__list__item">
+                      문제해결 능력을 추구하는 개발자 입니다.
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <button class="content-button">More</button>
+              <button class="modal-button">More</button>
               <!--
                 more 버튼 누르면 내 사진이랑 약력 넣기. 
                 자격증 관련된 내용도 여기에 넣으면 좋을듯.
                 포부? 내가 원하는 개발자의 모습?에 대한 것 넣기.
                 내가 되고싶은 개발자가 어떠한 것인지.
               -->
+
+              <div class="popup-modal intro-modal">
+                <div class="popup-modal__title">
+                  개발자 소개
+                </div>
+                <div class="popup-modal__subtitle">
+                  서브 타이틀!
+                </div>
+
+              </div>
             </div>
           </div>  <!-- /content-wrapper-header -->
 
@@ -107,7 +154,7 @@
             <div class="content-section-title">Skills</div>
             <ul>
 
-              <li class="adobe-product">
+              <li class="skill-list">
                 <div class="products">
                   Frontend
                 </div>
@@ -121,33 +168,13 @@
                   JS &amp; jQuery</span>
                   
                 <div class="button-wrapper">
-                    <button class="content-button status-button">More</button>
+                    <button class="modal-button">More</button>
                     <!-- 이 부분에 모달 창 넣기. -->
-  
-                  <!-- modal -->
-                  <!-- <details>
-                    <summary>
-                      <div class="modal-btn">
-                        More
-                      </div>
-                    </summary>
-                    <div class="modal">
-                      <div class="modal-close"> -->
-                        <!-- x 버튼 -->
-                      <!-- </div>
-                      <div class="modal-title">
-                        <h1> 모달 제목 </h1>
-                      </div>
-                      <div class="modal-content">
-                        <h3>모달 내용</h3>
-                      </div>
-                    </div>
-                  </details> -->
 
                 </div>
               </li>
 
-              <li class="adobe-product">
+              <li class="skill-list">
                 <div class="products">
                   Backend
                 </div>
@@ -161,7 +188,7 @@
                   Java &amp; NodeJS</span>
                   
                 <div class="button-wrapper">
-                  <button class="content-button status-button">More</button>
+                  <button class="modal-button">More</button>
                   <!-- 이 부분에 모달 창 넣기. -->
 
                   <!-- <div class="menu">
@@ -176,7 +203,7 @@
                 </div>
               </li>
 
-              <li class="adobe-product">
+              <li class="skill-list">
                 <div class="products">
                   Develops
                 </div>
@@ -190,7 +217,7 @@
                   Firewall &amp; Network</span>
                   
                 <div class="button-wrapper">
-                  <button class="content-button status-button">More</button>
+                  <button class="modal-button">More</button>
                   <!-- 이 부분에 모달 창 넣기. -->
 
                 </div>
@@ -213,9 +240,8 @@
                 </span>
                 <div class="app-card__subtext">간단한 설명 및 사진 추가하기.</div>
                 <div class="app-card-buttons">
-                  <button class="content-button status-button">More</button>
+                  <button class="modal-button">More</button>
                   <!-- button 누르면 해당 페이지로 이동을 하던가, 아니면 페이지의 화면 보여주기. -->
-                  <div class="menu"></div>
                 </div>
               </div>
 
@@ -225,9 +251,8 @@
                 </span>
                 <div class="app-card__subtext">간단한 설명 및 사진 추가하기.</div>
                 <div class="app-card-buttons">
-                  <button class="content-button status-button">More</button>
+                  <button class="modal-button">More</button>
                   <!-- button 누르면 해당 페이지로 이동을 하던가, 아니면 페이지의 화면 보여주기. -->
-                  <div class="menu"></div>
                 </div>
               </div>
 
@@ -237,9 +262,8 @@
                 </span>
                 <div class="app-card__subtext">간단한 설명 및 사진 추가하기.</div>
                 <div class="app-card-buttons">
-                  <button class="content-button status-button">More</button>
+                  <button class="modal-button">More</button>
                   <!-- button 누르면 해당 페이지로 이동을 하던가, 아니면 페이지의 화면 보여주기. -->
-                  <div class="menu"></div>
                 </div>
               </div>
 
@@ -259,11 +283,11 @@
     window.intergramId = "1920902033";
     // window.intergramServer = "https://jo-dev-bot-server.herokuapp.com/chat.html"
     window.intergramCustomizations = {
-      titleClosed: 'Chat Open',
+      titleClosed: 'Contact Me',
       titleOpen: 'Chat',
-      introMessage: '안녕하세요, 이 채팅창은 [조영수]의 Telegram과 연동되어있는 채팅창 입니다.',
+      introMessage: '안녕하세요, 이 채팅창은 [조영수]의 텔레그램과 연결된 채팅창 입니다.',
       autoResponse: '이 디자인 프로필은 Glassmorphism 방식으로 만들었습니다.',
-      autoNoResponse: '죄송합니다. 현재 채팅을 확인할 수 없는 상태입니다. [ E-mail ] 혹은 [ 연락처 ]를 남겨주신다면 제가 연락드리도록 하겠습니다. 감사하겠습니다.',
+      autoNoResponse: '죄송합니다. 현재 확인할 수 없는 상태입니다. [ E-mail ] 혹은 [ 연락처 ]를 남겨주신다면 제가 연락드리도록 하겠습니다. 감사하겠습니다.',
 
       mainColor: "#012e67",
       alwaysUseFloatingButton: false // use the mobile floating button also on large screens
