@@ -7,11 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jo's Design Profile</title>
   <!-- Font-Awesome 5.15.3 -->
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous'/>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+    integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=='
+    crossorigin='anonymous' />
 
   <!-- jQuery2.2.4 -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
-  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+
   <!-- CUSTOM -->
   <link rel="stylesheet" href="css/common.min.css">
   <script src="js/common.js" defer></script>
@@ -60,7 +62,7 @@
     <!-- - 컨테이너 부분은 메인-헤더와 컨텐츠로 구성되어 있다. -->
     <div class="container-wrapper">
       <div class="main-container">
-        
+
         <!-- 메인 헤더 -->
         <!--
           - 헤더 메뉴에는 3개의 메뉴가 있으며, 이 메뉴는 클릭을 했을 때 .wrap의 크기를 디바이스 환경의 기본적인 크기에 맞게 변경해준다. 현재는 텍스트로 처리가 되어있으며, 나중에 사진 또는 아이콘으로 변경 할 예정이다.
@@ -99,7 +101,7 @@
               <div class="slide">
                 <div class="slide__container">
                   <p class="slide__container__text">
-                    안녕하세요! &nbsp; 저는 
+                    안녕하세요! &nbsp; 저는
                   </p>
                   <ul class="slide__container__list">
                     <li class="slide__container__list__item">
@@ -129,13 +131,13 @@
               -->
 
               <div class="popup-modal intro-modal">
-                <div class="popup-modal__title">
-                  개발자 소개
-                </div>
                 <div class="popup-modal__close-button">
                   <div class="close-button__left"></div>
                   <div class="close-button__right"></div>
                   <label class="close">Close</label>
+                </div>
+                <div class="popup-modal__title">
+                  개발자 소개
                 </div>
                 <div class="popup-modal__subtitle">
                   <div class="popup-modal__subtitle__left">
@@ -145,8 +147,8 @@
 
                   <div class="popup-modal__subtitle__right">
                     <div class="devInfo__birth">
-                      <h3>생년월일</h3>
-                      <p>1996.04.09</p>
+                      <h3>나이</h3>
+                      <p>26세(1996)</p>
                     </div>
                     <div class="devInfo__edu">
                       <h3>학력</h3>
@@ -164,11 +166,12 @@
                         <tr>
                           <td>2015. 06</td>
                           <td>리눅스마스터 2급</td>
-                          <td class="hide_small">한국정보통신인력개발센터</td>
+                          <td class="hide_small">한국정보통신
+                            인력개발센터</td>
                         </tr>
                         <tr>
                           <td>2016. 04</td>
-                          <td>ACE(ACCESSDATA CERTIFIED EXAMINER)</td>
+                          <td>ACE(Forensic)</td>
                           <td class="hide_small">ACCESSDATA</td>
                         </tr>
                         <tr>
@@ -179,7 +182,8 @@
                         <tr>
                           <td>2017. 06</td>
                           <td>시큐어코딩 전문가</td>
-                          <td class="hide_small">한국직업능력 개발원</td>
+                          <td class="hide_small">한국직업능력
+                            개발원</td>
                         </tr>
                         <tr>
                           <td>2019. 12</td>
@@ -190,10 +194,10 @@
                     </div>
                   </div>
                 </div>
-
               </div>
+
             </div>
-          </div>  <!-- /content-wrapper-header -->
+          </div> <!-- /content-wrapper-header -->
 
 
           <!-- 컨텐츠 섹션 -->
@@ -204,7 +208,7 @@
             - Frontend, Backend, Develops 3개의 분류에 따라서 내가 할 수 있는것을 분류하고, 세부적인 정보는 More 버튼을 클릭했을 때 modal 창을 통해서 확인할 수 있다.
           -->
           <div class="content-section">
-            
+
             <!-- Skills -->
             <div class="content-section-title">Skills</div>
             <ul>
@@ -217,15 +221,55 @@
                 <span class="status">
                   <span class="status-circle red"></span>
                   HTML &amp; CSS</span>
-                
+
                 <span class="status">
                   <span class="status-circle yellow"></span>
                   JS &amp; jQuery</span>
-                  
-                <div class="button-wrapper">
-                    <button class="modal-button">More</button>
-                    <!-- 이 부분에 모달 창 넣기. -->
 
+                <div class="button-wrapper">
+                  <button class="modal-button">More</button>
+                </div>
+
+                <!-- 프론트엔드 모달 -->
+                <div class="popup-modal skills-modal">
+                  <div class="popup-modal__title">
+                    프론트엔드 스킬 소개
+                  </div>
+                  <div class="popup-modal__close-button">
+                    <div class="close-button__left"></div>
+                    <div class="close-button__right"></div>
+                    <label class="close">Close</label>
+                  </div>
+
+                  <div class="popup-modal__subtitle">
+                    <table class="skills-table">
+                      <tr>
+                        <th>기술</th>
+                        <th>단계</th>
+                        <th>활용 정도</th>
+                      </tr>
+                      <tr class="red">
+                        <td>HTML</td>
+                        <td>3단계</td>
+                        <td>태그를 활용한 마크업</td>
+                      </tr>
+                      <tr class="red">
+                        <td>CSS</td>
+                        <td>3단계</td>
+                        <td>SCSS와 :root를 이용한 변수 생성 및 사용</td>
+                      </tr>
+                      <tr class="yellow">
+                        <td>Javascript</td>
+                        <td>2단계</td>
+                        <td>약간의 ES6 기본 문법 활용<br>기초적인 async & await 사용.</td>
+                      </tr>
+                      <tr class="yellow">
+                        <td>jQuery</td>
+                        <td>2단계</td>
+                        <td>라이브러리 활용 및 기초적인 커스터마이징</td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </li>
 
@@ -237,24 +281,55 @@
                 <span class="status">
                   <span class="status-circle yellow"></span>
                   MySQL &amp; Python</span>
-                
+
                 <span class="status">
                   <span class="status-circle green"></span>
                   Java &amp; NodeJS</span>
-                  
+
                 <div class="button-wrapper">
                   <button class="modal-button">More</button>
-                  <!-- 이 부분에 모달 창 넣기. -->
+                </div>
 
-                  <!-- <div class="menu">
-                    <button class="dropdown">
-                      <ul>
-                        <li><a href="#">Go to Discover</a></li>
-                        <li><a href="#">Learn more</a></li>
-                        <li><a href="#">Uninstall</a></li>
-                      </ul>
-                    </button>
-                  </div> -->
+                <!-- 백엔드 모달 -->
+                <div class="popup-modal skills-modal">
+                  <div class="popup-modal__title">
+                    백엔드 스킬 소개
+                  </div>
+                  <div class="popup-modal__close-button">
+                    <div class="close-button__left"></div>
+                    <div class="close-button__right"></div>
+                    <label class="close">Close</label>
+                  </div>
+
+                  <div class="popup-modal__subtitle">
+                    <table class="skills-table">
+                      <tr>
+                        <th>기술</th>
+                        <th>단계</th>
+                        <th>활용 정도</th>
+                      </tr>
+                      <tr class="yellow">
+                        <td>MySQL</td>
+                        <td>2단계</td>
+                        <td>간단한 SQL 언어를 사용해<br>원하는 값을 찾을 수 있습니다.</td>
+                      </tr>
+                      <tr class="yellow">
+                        <td>Python</td>
+                        <td>2단계</td>
+                        <td>라이브러리 활용하기.<br>(ex: PDF에 저장되어있는 메타데이터 출력하기)</td>
+                      </tr>
+                      <tr class="green">
+                        <td>Java</td>
+                        <td>1단계</td>
+                        <td>관심을 가지고 학습을 하고있는 단계입니다.</td>
+                      </tr>
+                      <tr class="green">
+                        <td>Node JS</td>
+                        <td>1단계</td>
+                        <td>관심을 가지고 학습을 하고있는 단계입니다.</td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </li>
 
@@ -266,19 +341,59 @@
                 <span class="status">
                   <span class="status-circle yellow"></span>
                   Linux &amp; Git</span>
-                
+
                 <span class="status">
                   <span class="status-circle green"></span>
                   Firewall &amp; Network</span>
-                  
+
                 <div class="button-wrapper">
                   <button class="modal-button">More</button>
-                  <!-- 이 부분에 모달 창 넣기. -->
+                </div>
 
+                <!-- 개발 모달 -->
+                <div class="popup-modal skills-modal">
+                  <div class="popup-modal__title">
+                    개발 스킬 소개
+                  </div>
+                  <div class="popup-modal__close-button">
+                    <div class="close-button__left"></div>
+                    <div class="close-button__right"></div>
+                    <label class="close">Close</label>
+                  </div>
+
+                  <div class="popup-modal__subtitle">
+                    <table class="skills-table">
+                      <tr>
+                        <th>기술</th>
+                        <th>단계</th>
+                        <th>활용 정도</th>
+                      </tr>
+                      <tr class="yellow">
+                        <td>Linux</td>
+                        <td>2단계</td>
+                        <td>기본 명령어 숙지 및 환경 설정</td>
+                      </tr>
+                      <tr class="yellow">
+                        <td>Git</td>
+                        <td>2단계</td>
+                        <td>형상관리에 필요한 기본적인 사용법 숙지</td>
+                      </tr>
+                      <tr class="green">
+                        <td>FireWall</td>
+                        <td>1단계</td>
+                        <td>가상 ASA 방화벽 초기화<br>인터페이스 설정및 활성화 DHCP 적용<br>정적 라우팅 설정, ALC 적용, NAT 설정.</td>
+                      </tr>
+                      <tr class="green">
+                        <td>Network</td>
+                        <td>1단계</td>
+                        <td>GNS3를 활용한 네트워크 망 구성 및 연결.</td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </li>
             </ul>
-          </div>  <!-- /content-section -->
+          </div> <!-- /content-section -->
 
           <!-- 컨텐츠 섹션 2 -->
           <!--
@@ -293,7 +408,7 @@
                 <span>
                   Free Music Library
                 </span>
-                <div class="app-card__subtext">간단한 설명 및 사진 추가하기.</div>
+                <div class="app-card__subtext">무료 저작권 음악을 모아놓은 사이트를 컨셉으로 제작했습니다.</div>
                 <div class="app-card-buttons">
                   <button class="modal-button">More</button>
                   <!-- button 누르면 해당 페이지로 이동을 하던가, 아니면 페이지의 화면 보여주기. -->
@@ -302,32 +417,32 @@
 
               <div class="app-card">
                 <span>
-                  제목
+                  추가 예정
                 </span>
-                <div class="app-card__subtext">간단한 설명 및 사진 추가하기.</div>
+                <div class="app-card__subtext">간단한 설명 및 사진</div>
                 <div class="app-card-buttons">
-                  <button class="modal-button">More</button>
+                  <!-- <button class="modal-button">More</button> -->
                   <!-- button 누르면 해당 페이지로 이동을 하던가, 아니면 페이지의 화면 보여주기. -->
                 </div>
               </div>
 
               <div class="app-card">
                 <span>
-                  제목
+                  추가 예정
                 </span>
-                <div class="app-card__subtext">간단한 설명 및 사진 추가하기.</div>
+                <div class="app-card__subtext">간단한 설명 및 사진</div>
                 <div class="app-card-buttons">
-                  <button class="modal-button">More</button>
+                  <!-- <button class="modal-button">More</button> -->
                   <!-- button 누르면 해당 페이지로 이동을 하던가, 아니면 페이지의 화면 보여주기. -->
                 </div>
               </div>
 
             </div>
           </div>
-        </div>  <!-- /contant-wrapper -->
+        </div> <!-- /contant-wrapper -->
       </div> <!-- /main-container -->
     </div> <!-- /wrapper -->
-    
+
   </div>
   <script>
     /* 현 상태는 만들어진 라이브러리의 서버의 도움으로 동작하고 있는 상태
@@ -338,16 +453,15 @@
     window.intergramId = "1920902033";
     // window.intergramServer = "https://jo-dev-bot-server.herokuapp.com/chat.html"
     window.intergramCustomizations = {
-      titleClosed: 'Contact Me',
+      titleClosed: '개발자와 대화하기',
       titleOpen: 'Chat',
       introMessage: '안녕하세요, 이 채팅창은 [조영수]의 텔레그램과 연결된 채팅창 입니다.',
-      autoResponse: '이 디자인 프로필은 Glassmorphism 방식으로 만들었습니다.',
+      autoResponse: '응답에 시간이 걸릴 수 있으며, 채팅 내용은 계속 유지됩니다.',
       autoNoResponse: '죄송합니다. 현재 확인할 수 없는 상태입니다. [ E-mail ] 혹은 [ 연락처 ]를 남겨주신다면 제가 연락드리도록 하겠습니다. 감사하겠습니다.',
 
       mainColor: "#012e67",
       alwaysUseFloatingButton: false // use the mobile floating button also on large screens
     };
-  
   </script>
   <script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
 </body>
