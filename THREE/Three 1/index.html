@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8 />
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- import를 하기위해 script type을 module로 지정.
+      모듈의 핵심 기능
+      1. 엄격모드로 실행된다.
+      2. 모듈 내부에서 정의한 변수나 함수는 다른 스크립트에섯 접근할 수 없다.
+      3. 최초 호출 시 단 한 번만 실행된다.
+      4. 모듈의 최상위 레벨의 this는 undefined 이다.
+      5. 지연실행 된다.
+    -->
+    <script type="module">
+      /* 라이브러리 import */
+      import * as THREE from './build/three.module.js';
+      /*
+      궤도 컨트롤용 OrbitControls
+      용도는 불러온 뒤 자동회전을 할 때
+      카메라를 마우스 드래그 & 휠을 이용하여 카메라를 로테이션하고 줌할 때 사용.
+      */
+      import { OrbitControls } from '../assets/OrbitControls.js';
+      /*
+
+      */
+      import { FlakesTexture } from '../assets/FlakesTexture.js';
+      import { RGBELoader } from '../assets/RGBELoader.js';
+
+      // 값이 바뀔 수 있는 변수들 선언
+      let scene, camera, renderer, controls, pointlight;
+
+      /* 첫 로딩 때 실행될 함수, 마지막에 init()으로 실행할 예정 */
+      function init() {
+        scene = new THREE.Scene();
+
+        renderer = new THREE.WebGLRenderer({alpha:true,antialias:true});
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        renderer.outputEncoding = THREE.sRGBEncoding;22
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.25;
+
+        /*
+        PerspectiveCamara[카메라의 종류 중 하나]
+        (시야각[화면에 보여지는 정도], 
+        종횡비, [요소의 너비와 높이]
+        절단면 [near(0.1) 와 far(1000) 절단면 far 값보다 멀리있는 요소나 near 값보다 가까이 있는 오브젝트는 렌더링 되지 않는다.]
+        )
+        https://threejs.org/docs/#manual/ko/introduction/Creating-a-scene
+        */
+        camera = new THREE.PerspectiveCamera(50,window.innerWidth/window.innerHeight,1,1000);
+        /* 카메라 위치 지정 */
+        camera.position.set(0,0,500);
+        controls = new OrbitControls(camera, renderer.domElement);
+        /* OrbitControls 부분 설정(https://threejs.org/docs/#examples/ko/controls/OrbitControls)에서 특성 확인 후 기능추가 가능함. */
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 2;
+        controls.enableDamping = true;
+
+        /*기본 상태는 어둠이다. 그래서 빛을 추가해줘야 보이게 된다.
+        빛의 색을 지정하고
+        위치를 지정해준다.
+        그리고 화면에 포인트라이트를 추가해준다.
+        */
+        pointlight = new THREE.PointLight(0xffffff,1);
+        pointlight.position.set(200,200,200);
+        scene.add(pointlight);
+
+        let envmaploader = new THREE.PMREMGenerator(renderer);
+
+        new RGBELoader().setPath('textures/').load('cayley_interior_4k.hdr', function(hdrmap) {
+
+          let envmap = envmaploader.fromCubemap(hdrmap);
+          let texture = new THREE.CanvasTexture(new FlakesTexture());
+          texture.wrapS = THREE.RepeatWrapping;
+          texture.wrapT = THREE.RepeatWrapping;
+          texture.repeat.x = 10;
+          texture.repeat.y = 6;
+
+          const ballMaterial = {
+            clearcoat: 1.0,
+            cleacoatRoughness:0.1,
+            metalness: 0.9,
+            roughness:0.5,
+            color: 0x8418ca,
+            normalMap: texture,
+            normalScale: new THREE.Vector2(0.15,0.15),
+            envMap: envmap.texture
+          };
+
+          let ballGeo = new THREE.SphereGeometry(100,64,64);
+          let ballMat = new THREE.MeshPhysicalMaterial(ballMaterial);
+          let ballMesh = new THREE.Mesh(ballGeo,ballMat);
+          scene.add(ballMesh);
+
+          animate();
+
+        });
+      }
+      function animate() {
+        controls.update();
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      init();
+    </script>
+  </body>
+</html>

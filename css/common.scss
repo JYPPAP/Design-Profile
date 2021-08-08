@@ -559,7 +559,7 @@ body {
     background-color: #396df0;
     position: absolute;
     border-radius: 50%;
-    top: 4px;
+    top: 9px;
     left: -20px;
 
     &.red {
@@ -631,6 +631,18 @@ body {
     word-wrap: normal;
     word-break: keep-all;
   }
+  &__content {
+    margin-top: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    // aspect-ratio: 4 / 3;
+    width: 100%;
+    height: 0;
+    padding-top: 68.25%;
+    background-image: url(../images/Content/port1_main.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
   &-buttons {
     display: flex;
@@ -682,6 +694,8 @@ body {
   justify-content: center;
   align-items: center;
   overflow-y: auto;
+  word-wrap: normal;
+  word-break: keep-all;
 
   /* 닫기 버튼 */
   .popup-modal__close-button {
@@ -853,9 +867,6 @@ body {
           &:nth-child(2) {
             width: 60px;
           }
-          &:nth-child(2),
-          &:last-child {
-          }
           @media screen and (max-width: 680px) {
             &:nth-child(2) {
               display: none;
@@ -864,7 +875,50 @@ body {
         }
       }
     }
+  }
 
+  /* Port 모달 페이지 */
+  &.port-modal {
+    max-width: 600px;
+    width: 80vw;
+    max-height: 400px;
+    height: 80vh;
+
+    .popup-modal__title {
+      color: var(--theme-color);
+    }
+
+    .popup-modal__subtitle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .port_img {
+        background-color: #fff;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        &:nth-child(0) {
+          background-image: url(../images/Content/p1_full.jpg);
+        }
+        &:nth-child(1) {
+          background-image: url(../images/Content/p1_sub1.jpg);
+        }
+        &:nth-child(2) {
+          background-image: url(../images/Content/p1_sub2.jpg);
+        }
+        &:nth-child(3) {
+          background-image: url(../images/Content/p1_login.jpg);
+        }
+        &:nth-child(4) {
+          background-image: url(../images/Content/p1_pinfo.jpg);
+        }
+        &:nth-child(5) {
+          background-image: url(../images/Content/p1_use.jpg);
+        }
+      }
+    }
   }
   @media screen and (max-width: 680px) {
     width: calc(100% - 20px);

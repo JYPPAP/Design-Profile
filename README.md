@@ -25,8 +25,9 @@ JS
 3. 다중모달에 대해서 스크립트 생성 완료
 
 # 수정해야 할 사항
-1. search-bar input에 focus 되었을 때 .header에 .wide 클래스 추가하는 부분을 javascript로 만들기
-- search-bar input에 blur 되었을 때 .header에 .wide 클래스 제거하기
+1. search-bar input에 focus 되었을 때 .header에 .wide 클래스 추가하는 부분을 javascript로 만들기, search-bar input에 blur 되었을 때 .header에 .wide 클래스 제거하기
+- 문제점이 javascript에서 jQuery의 .focus()와 .blur()와 같은 동작을 할 수 있는 상태로 만들어야 할 것 같음. 이 부분에서 동작에 문제가 발생함.
+
 2. Tablet, Mobile을 클릭했을 때 screen 값이 변경될 수 있도록 수정하기
 - Tablet과, Mobile을 눌렀을 때 window의 크기가 아니면 .wrap의 크기가 자동으로 변경될 수 있도록 수정하기.
 -- 현재는 그냥 짤려버림. 짤리는 상태가 아니라 원하는 크기로 지정했을 때 그 크기에 맞게 반응형으로 수정되는 상태로 만들기.

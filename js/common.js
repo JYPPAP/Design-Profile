@@ -42,6 +42,7 @@ $(".search-bar input")
   });
 
 /* 화면 너비 변경용 */
+/* 추가할 기능구현은 메뉴 클릭시 .wrap의 너비 변경. */
 document.addEventListener("DOMContentLoaded", () => {
   const changeWidth = document.getElementsByClassName('main-header-link');
   console.log(changeWidth);
@@ -75,12 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function Modal(num) {
     return function () {
-      modalBtn[num].onclick = function() {
+      modalBtn[num].onclick = () => {
         popupModal[num].style.visibility = "visible";
         bodyBlackWrap.style.visibility = "visible"
       };
 
-      closeBtn[num].onclick = function() {
+      closeBtn[num].onclick = () => {
         bodyBlackWrap.style.visibility = "hidden";
         popupModal[num].style.visibility = "hidden";
       };
